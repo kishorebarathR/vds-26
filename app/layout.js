@@ -13,8 +13,8 @@ const merriweather = Merriweather({
 })
 
 export const metadata = {
-  title: "Your Site Title",
-  description: "Your description here",
+  title: "V. D. Satheesan: Dedicated Public Servant and Leader for Change",
+  description: "Explore the journey and achievements of V. D. Satheesan, a committed leader dedicated to social justice and community welfare.",
 }
 
 export default function RootLayout({ children }) {

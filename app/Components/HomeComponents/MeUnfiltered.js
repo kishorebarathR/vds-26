@@ -80,7 +80,10 @@ const MeUnfiltered = () => {
                 className="twitter-timeline"
                 data-width="350"
                 data-height="500"
-                href="https://twitter.com/vdsatheesan?ref_src=twsrc%5Etfw"
+                href="https://x.com/vdsatheesan"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="V. D. Satheesan on X"
               >
                 Tweets by vdsatheesan
               </a>
@@ -88,15 +91,23 @@ const MeUnfiltered = () => {
 
             {/* Second column (Instagram logo) */}
             <div className="mx-5 lg:mx-0 ">
-              <div className="bg-[#C0C0C0] rounded-lg shadow-md flex items-center justify-center  w-full h-full">
-                <Image
-                  src="/home_images/Instagram-Logo.wine.svg"
-                  alt="Instagram logo"
-                  className="w-40 h-40"
-                  loading="lazy"
-                  width={100}
-                  height={100}
-                />
+              <div className="relative flex min-h-[280px] w-full items-center justify-center overflow-hidden rounded-lg bg-[url('/insta.jpg')] bg-cover bg-center bg-no-repeat shadow-md md:min-h-[490px]">
+                <a
+                  href="https://www.instagram.com/vdsatheesanleaderofopposition/?hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="V. D. Satheesan on Instagram"
+                  className="relative z-10 inline-flex"
+                >
+                  <Image
+                    src="/home_images/Instagram-Logo.wine.svg"
+                    alt="Instagram logo"
+                    className="h-30 w-30 drop-shadow-lg"
+                    loading="lazy"
+                    width={100}
+                    height={100}
+                  />
+                </a>
               </div>
             </div>
 
