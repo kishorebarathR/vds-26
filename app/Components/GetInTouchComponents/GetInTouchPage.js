@@ -100,10 +100,9 @@ const GetInTouchPage = () => {
         </div>
       </div>
 
-      {/* Footer */}
       <div className="bg-gradient-to-b from-[#035C96] to-[#022E4B] py-5 text-center text-white text-[16px] shadow-t">
-        Copyright © 2022 All rights reserved.
-      </div>
+  Copyright © {new Date().getFullYear()} All rights reserved.
+</div>
     </div>
   )
 }
