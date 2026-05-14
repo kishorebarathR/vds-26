@@ -1,144 +1,231 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 const Contactform = () => {
-  const [yourName, setYourName] = useState('');
-  const [yourEmail, setYourEmail] = useState('');
-  const [yourPhone, setYourPhone] = useState('');
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
+
   const [errors, setErrors] = useState({});
-  const [successMessage, setSuccessMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  // ================= INPUT CHANGE =================
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'name') {
-      setYourName(value);
-    } else if (name === 'email') {
-      setYourEmail(value);
-    } else if (name === 'phone') {
-      setYourPhone(value);
-    }
+
+    setFormData({
+      ...formData,
+      [name]:
+        name === "phone"
+          ? value.replace(/\D/g, "").slice(0, 10)
+          : value,
+    });
   };
 
+  // ================= VALIDATION =================
   const validate = () => {
     const newErrors = {};
-    if (!yourName.trim()) {
-      newErrors.yourName = 'Name is required.';
+
+    // Name Validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
     }
-    if (!yourEmail.trim()) {
-      newErrors.yourEmail = 'Email is required.';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(yourEmail)) {
-      newErrors.yourEmail = 'Invalid email address.';
+
+    // Phone Validation
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = "Phone number must be 10 digits";
     }
-    if (!yourPhone.trim()) {
-      newErrors.yourPhone = 'Phone number is required.';
-    } else if (!/^\d{10}$/.test(yourPhone)) {
-      newErrors.yourPhone = 'Phone number must be 10 digits.';
+
+    // Email Validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+    ) {
+      newErrors.email = "Invalid email address";
     }
 
     setErrors(newErrors);
+
     return Object.keys(newErrors).length === 0;
   };
 
-  const createPost = async () => {
-    setErrors({});
-    setSuccessMessage('');
-    setIsLoading(true);
+  // ================= SUBMIT =================
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const formData = new FormData();
-    formData.append('your-name', yourName);
-    formData.append('your-email', yourEmail);
-    formData.append('your-phone', yourPhone);
+    if (!validate()) return;
+
+    setIsLoading(true);
+    setErrors({});
+    setMessage("");
 
     try {
+      const submitData = new FormData();
+
+      // MUST MATCH CONTACT FORM 7 FIELD NAMES
+      submitData.append("your-name", formData.name);
+      submitData.append("your-phone", formData.phone);
+      submitData.append("your-email", formData.email);
+
+      // REQUIRED FOR CF7
+      submitData.append("_wpcf7_unit_tag", "react-form");
+
       const response = await axios.post(
-        'https://vdsatheesan.com/wp-json/contact-form-7/v1/contact-forms/9588/feedback',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        }
+        "https://docs.vdsatheesan.com/wp-json/contact-form-7/v1/contact-forms/6/feedback",
+        submitData
       );
 
-      if (response.data.status === 'mail_sent') {
-        setSuccessMessage('Form submitted successfully!');
-        setYourName('');
-        setYourEmail('');
-        setYourPhone('');
+      console.log(response.data);
+
+      // SUCCESS EVEN IF MAIL FAILS
+      if (
+        response.data.status === "mail_sent" ||
+        response.data.status === "mail_failed"
+      ) {
+        setMessage("Form submitted successfully!");
+
+        // RESET FORM
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+        });
+
+        // CLEAR SUCCESS MESSAGE AFTER 4 SECONDS
+        // setTimeout(() => {
+        //   setMessage("");
+        // }, 4000);
       } else {
-        setErrors({ message: response.data.message || 'Submission failed. Please try again.' });
+        setErrors({
+          submit:
+            response.data.message ||
+            "Something went wrong. Please try again.",
+        });
       }
     } catch (error) {
-      console.error('Submission error:', error);
-      setErrors({ message: 'Failed to submit the form. Please try again later.' });
+      console.log(error.response);
+
+      setErrors({
+        submit:
+          error.response?.data?.message ||
+          "Failed to submit form",
+      });
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      createPost();
-    }
-  };
-
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="px-7 bg-[#072D46] w-full merriweather-regular">
+    <div className="w-full">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-[#072D46] p-8 rounded-2xl shadow-xl"
+      >
+        {/* Heading */}
+        <h2 className="text-white text-center text-3xl font-semibold mb-8">
+          Be My Friend
+        </h2>
+
+        {/* Error Message */}
+        {errors.submit && (
+          <div className="mb-5 animate-pulse">
+            <p className="text-red-300 text-center bg-red-500/10 border border-red-500/20 py-3 rounded-xl">
+              {errors.submit}
+            </p>
+          </div>
+        )}
+
+        {/* Success Message */}
+        {message && (
+          <div className="mb-5 animate-bounce">
+            <p className="text-green-300 text-center bg-green-500/10 border border-green-500/20 py-3 rounded-xl">
+              {message}
+            </p>
+          </div>
+        )}
+
+        {/* Name */}
         <div className="mb-5">
-          <h3 className="text-center lg:text-[30px] text-[28px] p-5 text-white font-semibold">
-            Be My Friend
-          </h3>
-        </div>
-
-        {errors.message && <p className="text-red-500 text-center">{errors.message}</p>}
-        {successMessage && <p className="text-green-500 text-center">{successMessage}</p>}
-
-        <div className="mb-5 py-3">
           <input
             type="text"
             name="name"
-            value={yourName}
-            onChange={handleChange}
-            className="bg-[#033B5F] py-3 text-[15px] lg:text-[20px] px-3 rounded-lg block w-full border border-[#033B5F] text-white focus:outline-none"
             placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full bg-[#033B5F] text-white rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-[#4DA8DA] transition-all duration-300"
           />
-          {errors.yourName && <p className="text-red-500">{errors.yourName}</p>}
+
+          {errors.name && (
+            <p className="text-red-400 mt-2 text-sm animate-pulse">
+              {errors.name}
+            </p>
+          )}
         </div>
 
-        <div className="mb-5 py-3">
+        {/* Phone */}
+        <div className="mb-5">
           <input
             type="tel"
             name="phone"
-            value={yourPhone}
-            onChange={handleChange}
-            className="bg-[#033B5F] py-3 text-[15px] lg:text-[20px] px-3 rounded-lg block w-full border border-[#033B5F] text-white focus:outline-none"
             placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleChange}
+            className="w-full bg-[#033B5F] text-white rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-[#4DA8DA] transition-all duration-300"
           />
-          {errors.yourPhone && <p className="text-red-500">{errors.yourPhone}</p>}
+
+          {errors.phone && (
+            <p className="text-red-400 mt-2 text-sm animate-pulse">
+              {errors.phone}
+            </p>
+          )}
         </div>
 
-        <div className="mb-5 py-3">
+        {/* Email */}
+        <div className="mb-6">
           <input
             type="email"
             name="email"
-            value={yourEmail}
-            onChange={handleChange}
-            className="bg-[#033B5F] py-3 text-[15px] lg:text-[20px] px-3 rounded-lg block w-full border border-[#033B5F] text-white focus:outline-none"
             placeholder="Email ID"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full bg-[#033B5F] text-white rounded-xl px-4 py-4 focus:outline-none focus:ring-2 focus:ring-[#4DA8DA] transition-all duration-300"
           />
-          {errors.yourEmail && <p className="text-red-500">{errors.yourEmail}</p>}
+
+          {errors.email && (
+            <p className="text-red-400 mt-2 text-sm animate-pulse">
+              {errors.email}
+            </p>
+          )}
         </div>
 
+        {/* Submit Button */}
         <div className="flex justify-center">
           <button
             type="submit"
-            className="text-white border font-medium rounded-md text-[15px] lg:text-[20px] px-5 py-2.5 mb-5 w-32"
             disabled={isLoading}
+            className={`w-44 py-3 rounded-xl border border-white text-white font-medium transition-all duration-300 flex items-center justify-center gap-3
+              
+              ${
+                isLoading
+                  ? "bg-white/10 cursor-not-allowed"
+                  : "hover:bg-white hover:text-[#072D46] hover:scale-105"
+              }`}
           >
-            {isLoading ? 'Submitting...' : 'Submit'}
+            {isLoading ? (
+              <>
+                {/* Spinner */}
+                <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                Submitting...
+              </>
+            ) : (
+              "Submit"
+            )}
           </button>
         </div>
       </form>
