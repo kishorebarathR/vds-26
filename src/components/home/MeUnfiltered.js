@@ -52,17 +52,6 @@ const LazyIframe = ({ src, title, ...props }) => {
 }
 
 const MeUnfiltered = () => {
-  useEffect(() => {
-    const script = document.createElement("script")
-    script.src = "https://platform.twitter.com/widgets.js"
-    script.async = true
-    document.body.appendChild(script)
-
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
   return (
     <div className="relative w-full merriweather-regular">
       <div className="bg-[url('/home_images/gallery-img-07.png')] bg-cover bg-center w-full h-full">
@@ -77,15 +66,25 @@ const MeUnfiltered = () => {
             {/* First column (Twitter feed) */}
             <div className="flex justify-center items-center w-full">
               <a
-                className="twitter-timeline"
-                data-width="350"
-                data-height="500"
                 href="https://x.com/vdsatheesan"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="V. D. Satheesan on X"
+                className="flex min-h-[280px] w-full max-w-[350px] flex-col justify-between rounded-lg bg-white p-6 text-[#033B5F] shadow-md md:min-h-[490px]"
               >
-                Tweets by vdsatheesan
+                <span>
+                  <span className="block text-2xl font-bold">X</span>
+                  <span className="mt-4 block text-xl font-semibold">
+                    V. D. Satheesan
+                  </span>
+                  <span className="mt-2 block text-sm text-slate-600">
+                    Follow official updates, public statements, and current
+                    conversations.
+                  </span>
+                </span>
+                <span className="inline-flex w-fit rounded-md bg-[#033B5F] px-4 py-2 text-white">
+                  View Profile
+                </span>
               </a>
             </div>
 

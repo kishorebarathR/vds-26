@@ -4,7 +4,7 @@ import { videos } from "@/src/utils/gettingCandidData"
 const VideoPlayer = () => {
   const iframeRef = useRef(null)
   const [currentVideo, setCurrentVideo] = useState({
-    url: "https://www.youtube.com/embed/1cmf-VHJys0",
+    url: "https://www.youtube-nocookie.com/embed/1cmf-VHJys0",
     title: "Episode 36 |",
     title2: "Hari Marar, MD And CEO Of Bangalore Airport with V.D.Satheesan",
     description:

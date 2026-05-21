@@ -4,20 +4,20 @@ import React, { useState, useRef, useEffect } from "react"
 const VideoPlayer = () => {
   const iframeRef = useRef(null)
   const [currentVideo, setCurrentVideo] = useState({
-    url: "https://www.youtube.com/embed/luIuD3xbtSQ",
+    url: "https://www.youtube-nocookie.com/embed/luIuD3xbtSQ",
   })
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentVideoId, setCurrentVideoId] = useState("UCpYogDflbQ")
   const [lastPlayedTime, setLastPlayedTime] = useState(0)
 
   const videos = [
-    { url: "https://www.youtube.com/embed/luIuD3xbtSQ" },
-    { url: "https://www.youtube.com/embed/a9K_i_H5UVw" },
-    { url: "https://www.youtube.com/embed/WzchbN_bZZI" },
-    { url: "https://www.youtube.com/embed/nj-OLjaZ8Ws" },
-    { url: "https://www.youtube.com/embed/4k9bDn88XUs" },
-    { url: "https://www.youtube.com/embed/ULmwv-_Ly2M" },
-    { url: "https://www.youtube.com/embed/lBqFlHEhDP0" },
+    { url: "https://www.youtube-nocookie.com/embed/luIuD3xbtSQ" },
+    { url: "https://www.youtube-nocookie.com/embed/a9K_i_H5UVw" },
+    { url: "https://www.youtube-nocookie.com/embed/WzchbN_bZZI" },
+    { url: "https://www.youtube-nocookie.com/embed/nj-OLjaZ8Ws" },
+    { url: "https://www.youtube-nocookie.com/embed/4k9bDn88XUs" },
+    { url: "https://www.youtube-nocookie.com/embed/ULmwv-_Ly2M" },
+    { url: "https://www.youtube-nocookie.com/embed/lBqFlHEhDP0" },
   ]
 
   useEffect(() => {

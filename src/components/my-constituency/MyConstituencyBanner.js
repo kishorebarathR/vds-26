@@ -39,7 +39,7 @@ const MyConstituencyBanner = () => {
           <iframe
             width="100%"
             height="680"
-            src="https://www.youtube.com/embed/tZudcGhRg00"
+            src="https://www.youtube-nocookie.com/embed/tZudcGhRg00"
             title="&#39;പൊന്നു ഷംസീറേ, എല്ലാത്തിലും കയറി അഭിപ്രായം പറയല്ലേ..&#39;&#39;: | VD Satheesan | Niyamasabha"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

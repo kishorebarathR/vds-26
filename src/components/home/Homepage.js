@@ -38,7 +38,7 @@ const Homepage = () => {
         <iframe
           width="100%"
           height="700"
-          src="https://www.youtube.com/embed/1DSQ3D0jpaE?autoplay=1"
+          src="https://www.youtube-nocookie.com/embed/1DSQ3D0jpaE?autoplay=1"
           title="VDS Hero Banner V2"
           frameBorder="0"
           loading="lazy"

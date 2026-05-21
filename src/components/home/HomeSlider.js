@@ -159,11 +159,11 @@ export default function SimpleSlider() {
               <div
                 className="relative group cursor-pointer"
                 onClick={() =>
-                  openPopup("https://www.youtube.com/embed/lBqFlHEhDP0?rel=0")
+                  openPopup("https://www.youtube-nocookie.com/embed/lBqFlHEhDP0?rel=0")
                 }
               >
                 <LazyIframe
-                  src="https://www.youtube.com/embed/lBqFlHEhDP0?rel=0"
+                  src="https://www.youtube-nocookie.com/embed/lBqFlHEhDP0?rel=0"
                   title="vaikkom sathyagraham @100 | വൈക്കം സത്യഗ്രഹത്തിന് 100 വയസ്"
                   className="w-full h-full"
                   loading="lazy"
@@ -179,11 +179,11 @@ export default function SimpleSlider() {
               <div
                 className="relative group cursor-pointer"
                 onClick={() =>
-                  openPopup("https://www.youtube.com/embed/a9K_i_H5UVw")
+                  openPopup("https://www.youtube-nocookie.com/embed/a9K_i_H5UVw")
                 }
               >
                 <LazyIframe
-                  src="https://www.youtube.com/embed/a9K_i_H5UVw"
+                  src="https://www.youtube-nocookie.com/embed/a9K_i_H5UVw"
                   title="സംഘപരിവാർ ഫാസിസത്തിനെതിരെ നിരന്തരം ചോദ്യങ്ങൾ ഉയരും"
                   className="w-full h-full"
                   loading="lazy"
@@ -199,11 +199,11 @@ export default function SimpleSlider() {
               <div
                 className="relative group cursor-pointer"
                 onClick={() =>
-                  openPopup("https://www.youtube.com/embed/WzchbN_bZZI")
+                  openPopup("https://www.youtube-nocookie.com/embed/WzchbN_bZZI")
                 }
               >
                 <LazyIframe
-                  src="https://www.youtube.com/embed/WzchbN_bZZI"
+                  src="https://www.youtube-nocookie.com/embed/WzchbN_bZZI"
                   title="ഇരിക്കുന്ന സ്ഥാനത്തോടെങ്കിലും മാന്യത കാണിക്കണം മുഖ്യമന്ത്രി"
                   className="w-full h-full"
                   loading="lazy"
@@ -219,11 +219,11 @@ export default function SimpleSlider() {
               <div
                 className="relative group cursor-pointer"
                 onClick={() =>
-                  openPopup("https://www.youtube.com/embed/nj-OLjaZ8Ws")
+                  openPopup("https://www.youtube-nocookie.com/embed/nj-OLjaZ8Ws")
                 }
               >
                 <LazyIframe
-                  src="https://www.youtube.com/embed/nj-OLjaZ8Ws"
+                  src="https://www.youtube-nocookie.com/embed/nj-OLjaZ8Ws"
                   title="ദൗര്‍ഭാഗ്യകരമായ സംഭവങ്ങളാണ് നിയമസഭയ്ക്കുള്ളിലും സ്പീക്കറുടെ ഓഫീസിന് മുന്നിലും നടന്നത്."
                   className="w-full h-full"
                 />
@@ -239,11 +239,11 @@ export default function SimpleSlider() {
               <div
                 className="relative group cursor-pointer"
                 onClick={() =>
-                  openPopup("https://www.youtube.com/embed/4k9bDn88XUs")
+                  openPopup("https://www.youtube-nocookie.com/embed/4k9bDn88XUs")
                 }
               >
                 <LazyIframe
-                  src="https://www.youtube.com/embed/4k9bDn88XUs"
+                  src="https://www.youtube-nocookie.com/embed/4k9bDn88XUs"
                   title="Walkout Speech Brahmapuram | ബ്രഹ്‌മപുരം നിയമസഭയിൽ"
                   className="w-full h-full"
                   loading="lazy"
@@ -259,11 +259,11 @@ export default function SimpleSlider() {
               <div
                 className="relative group cursor-pointer"
                 onClick={() =>
-                  openPopup("https://www.youtube.com/embed/ULmwv-_Ly2M")
+                  openPopup("https://www.youtube-nocookie.com/embed/ULmwv-_Ly2M")
                 }
               >
                 <LazyIframe
-                  src=" https://www.youtube.com/embed/ULmwv-_Ly2M"
+                  src=" https://www.youtube-nocookie.com/embed/ULmwv-_Ly2M"
                   title="Most Open Debate: ആസ്വാദ്യസംസ്‌കാരവുമായി ഏകോപനം"
                   className="w-full h-full"
                   loading="lazy"
@@ -279,11 +279,11 @@ export default function SimpleSlider() {
               <div
                 className="relative group cursor-pointer"
                 onClick={() =>
-                  openPopup("https://www.youtube.com/embed/luIuD3xbtSQ")
+                  openPopup("https://www.youtube-nocookie.com/embed/luIuD3xbtSQ")
                 }
               >
                 <LazyIframe
-                  src="https://www.youtube.com/embed/luIuD3xbtSQ"
+                  src="https://www.youtube-nocookie.com/embed/luIuD3xbtSQ"
                   title="Kuttanadu Vision: യോഗസ്ഥിതി"
                   className="w-full h-full"
                   loading="lazy"
