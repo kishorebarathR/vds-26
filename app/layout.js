@@ -1,5 +1,6 @@
 import React from "react"
 import "./globals.css"
+import { Merriweather } from "next/font/google"
 import Header from "@/src/components/shared/header"
 import Footer from "@/src/components/shared/footer"
 import {
@@ -9,6 +10,13 @@ import {
   siteName,
   siteUrl,
 } from "@/src/config/seo"
+
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-merriweather",
+  display: "swap",
+})
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -69,8 +77,8 @@ const websiteJsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={merriweather.variable}>
+      <body className={`${merriweather.className} font-sans`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

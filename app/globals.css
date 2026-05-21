@@ -1,23 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --font-merriweather-fallback: Georgia, "Times New Roman", Times, serif;
-}
-
-body {
-  font-family: var(--font-merriweather-fallback);
-}
-
-.merriweather-regular {
-  font-family: var(--font-merriweather-fallback);
-  font-weight: 400;
-}
-
-.merriweather-bold {
-  font-family: var(--font-merriweather-fallback);
-  font-weight: 700;
-}
-
 
 /* 
 body {
