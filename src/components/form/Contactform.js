@@ -81,8 +81,6 @@ const Contactform = () => {
         submitData
       );
 
-      console.log(response.data);
-
       // SUCCESS EVEN IF MAIL FAILS
       if (
         response.data.status === "mail_sent" ||
@@ -109,8 +107,6 @@ const Contactform = () => {
         });
       }
     } catch (error) {
-      console.log(error.response);
-
       setErrors({
         submit:
           error.response?.data?.message ||
