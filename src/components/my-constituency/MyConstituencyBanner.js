@@ -15,7 +15,9 @@ const MyConstituencyBanner = () => {
           <div className="relative lg:h-[84vh] h-[60vh] w-full">
             <Image
               src="/home_images/home_banner.png"
-              alt="Banner"
+              alt="V. D. Satheesan speaking about North Paravur constituency"
+              priority
+              sizes="100vw"
               className="w-full lg:h-[84vh] h-[60vh] cursor-pointer bg-no-repeat object-cover"
               width={1000}
               height={1000}
@@ -25,6 +27,7 @@ const MyConstituencyBanner = () => {
               <Image
                 src="/play-button1.svg"
                 alt="Play Button"
+                sizes="96px"
                 className="w-24 h-24 cursor-pointer  rounded-full"
                 width={1000}
                 height={1000}

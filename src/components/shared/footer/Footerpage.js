@@ -3,7 +3,7 @@ import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import FormComponents from '../../FormComponents/Contactform'
+import FormComponents from '@/src/components/form/Contactform'
 const currentYear = new Date().getFullYear()
 const Footerpage = () => {
   const pathname = usePathname()

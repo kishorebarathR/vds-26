@@ -1,6 +1,6 @@
 import React from "react";
-import NewsLettersPage from "../NewsLettersComponents/NewsLettersPage";
-import NewsLettersBanner from "../NewsLettersComponents/NewsLettersBanner";
+import NewsLettersPage from "./NewsLettersPage";
+import NewsLettersBanner from "./NewsLettersBanner";
 
 const index = () => {
   return (

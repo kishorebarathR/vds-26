@@ -8,7 +8,7 @@ import {
   FaArrowRight,
   FaArrowCircleRight,
 } from "react-icons/fa"
-import { sliderData } from "../../utils/pressReleasesData"
+import { sliderData } from "@/src/utils/pressReleasesData"
 
 // Arrow Components
 const NextArrow = ({ className, style, onClick }) => (

@@ -1,27 +1,11 @@
-"use client"
 import React from "react"
-import InmyBookShelfComponents from "../Components/InMyBookShelfComponents"
-import Seo from "../Components/SeoComponents/Seo"
-import { usePathname } from "next/navigation"
+import InmyBookShelfComponents from "@/src/components/in-my-book-shelf"
+import { pageMetadata } from "@/src/config/seo"
+
+export const metadata = pageMetadata("/in-my-book-shelf")
 
 const Page = () => {
-  const pathname = usePathname()
-  const title = " V. D. Satheesan’s Favourite Reads – In My Book Shelf"
-  const description =
-    " Explore the influential bookshelf of V. D. Satheesan, featuring a diverse range of literature from historical to modern authors that have shaped his political and personal life. "
-  const path = `${pathname}`
-  const metaImage = ""
-  return (
-    <>
-      <Seo
-        title={title}
-        description={description}
-        path={path}
-        metaImage={metaImage}
-      />
-      <InmyBookShelfComponents />
-    </>
-  )
+  return <InmyBookShelfComponents />
 }
 
 export default Page

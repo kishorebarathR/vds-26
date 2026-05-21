@@ -3,7 +3,7 @@
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import Contactform from "../FormComponents/Contactform"
+import Contactform from "@/src/components/form/Contactform"
 
 const GetInTouchPage = () => {
   return (
@@ -74,6 +74,8 @@ const GetInTouchPage = () => {
         <div className="flex flex-col md:flex-row gap-4">
           <iframe
             className="w-full md:w-1/2 h-80 filter grayscale"
+            title="V. D. Satheesan MLA Office map"
+            loading="lazy"
             frameBorder="0"
             scrolling="no"
             marginHeight="0"
@@ -87,6 +89,8 @@ const GetInTouchPage = () => {
 
           <iframe
             className="w-full md:w-1/2 h-80 filter grayscale"
+            title="V. D. Satheesan office location map"
+            loading="lazy"
             frameBorder="0"
             scrolling="no"
             marginHeight="0"

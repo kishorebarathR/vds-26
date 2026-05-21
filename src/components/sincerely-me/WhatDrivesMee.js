@@ -1,4 +1,4 @@
-"use clint"
+"use client"
 import React, { useState } from "react"
 import { FaFacebook } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6";

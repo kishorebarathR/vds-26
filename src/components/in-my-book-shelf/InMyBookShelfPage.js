@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import Aos from "aos"
 import "aos/dist/aos.css"
-import { books } from "../../utils/inMYBookData"
+import { books } from "@/src/utils/inMYBookData"
 const InMyBookShelfPage = () => {
   const [visibleBooks, setVisibleBooks] = useState(9)
 

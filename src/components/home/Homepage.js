@@ -15,8 +15,9 @@ const Homepage = () => {
         <div className="relative lg:h-[84vh] h-[60vh] w-full">
           <Image
             src="/home_images/home_banner.png"
-            alt="Banner"
-            loading="lazy"
+            alt="V. D. Satheesan official website hero banner"
+            priority
+            sizes="100vw"
             className="w-full lg:h-[84vh] h-[60vh] cursor-pointer bg-no-repeat object-cover"
             width={1000}
             height={1000}
@@ -26,7 +27,6 @@ const Homepage = () => {
             <Image
               src="/play-button1.svg"
               alt="Play Button"
-              loading="lazy"
               className="w-24 h-24 cursor-pointer rounded-full"
               width={1000}
               height={1000}
@@ -58,8 +58,9 @@ const Homepage = () => {
               height={350}
               src="/home_images/vds_img-home1.png"
               className="h-full  w-[89vh]"
-              alt="Description"
+              alt="V. D. Satheesan portrait"
               loading="lazy"
+              sizes="(min-width: 1024px) 50vw, 100vw"
             />
           </div>
 

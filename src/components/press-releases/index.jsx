@@ -1,6 +1,6 @@
 import React from "react";
-import PressReleasesBanner from "../PressReleasesComponents/PressReleasesBanner";
-import PressReleasesSlider from "../PressReleasesComponents/PressReleasesSlider";
+import PressReleasesBanner from "./PressReleasesBanner";
+import PressReleasesSlider from "./PressReleasesSlider";
 
 const index = () => {
   return (

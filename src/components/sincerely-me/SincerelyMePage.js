@@ -21,8 +21,9 @@ const SincerelyMe = () => {
               height={140}
               className="lg:w-96 w-80 "
               src="/sincere_images/sincerely-img-11.png"
-              alt="Nettor Kerala"
-              loading="lazy"
+              alt="Sincerely Me by V. D. Satheesan"
+              priority
+              sizes="(min-width: 1024px) 384px, 320px"
             />
           </div>
         </div>

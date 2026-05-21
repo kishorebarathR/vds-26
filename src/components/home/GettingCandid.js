@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useRef, useEffect } from "react"
-import { videos } from "../../utils/gettingCandidData"
+import { videos } from "@/src/utils/gettingCandidData"
 const VideoPlayer = () => {
   const iframeRef = useRef(null)
   const [currentVideo, setCurrentVideo] = useState({

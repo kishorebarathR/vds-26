@@ -10,8 +10,9 @@ const PressReleasesBanner = () => {
           width={1050}
           height={850}
           src="/press_release/press.jpeg"
-          alt="press"
-          loading="lazy"
+          alt="V. D. Satheesan press releases"
+          priority
+          sizes="100vw"
         />
         <h1 className="absolute top-1/2 lg:left-28 transform -translate-y-1/2 text-center lg:text-[50px] text-[40px] px-3  text-[#033B5F] merriweather-regular">
           Press Releases
