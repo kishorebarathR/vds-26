@@ -70,21 +70,32 @@ const MeUnfiltered = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="V. D. Satheesan on X"
-                className="flex min-h-[280px] w-full max-w-[350px] flex-col justify-between rounded-lg bg-white p-6 text-[#033B5F] shadow-md md:min-h-[490px]"
+                className="relative flex min-h-[280px] w-full max-w-[350px] flex-col justify-center items-center overflow-hidden rounded-lg p-6 text-left text-white shadow-md md:min-h-[490px]"
               >
-                <span>
+                {/* Background Image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: "url('/home_images/vdsimg.webp')"
+                  }}
+                />
+
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black/30" />
+
+                {/* Content */}
+                <div className="relative z-10">
                   <span className="block text-2xl font-bold">X</span>
+
                   <span className="mt-4 block text-xl font-semibold">
                     V. D. Satheesan
                   </span>
-                  <span className="mt-2 block text-sm text-slate-600">
-                    Follow official updates, public statements, and current
-                    conversations.
+
+                  <span className="mt-2 block text-sm text-slate-200">
+                    Chief Minister, Keralam. Ardent supporter of Nehruvian
+                    Socialism
                   </span>
-                </span>
-                <span className="inline-flex w-fit rounded-md bg-[#033B5F] px-4 py-2 text-white">
-                  View Profile
-                </span>
+                </div>
               </a>
             </div>
 
@@ -92,7 +103,7 @@ const MeUnfiltered = () => {
             <div className="mx-5 lg:mx-0 ">
               <div className="relative flex min-h-[280px] w-full items-center justify-center overflow-hidden rounded-lg bg-[url('/insta.jpg')] bg-cover bg-center bg-no-repeat shadow-md md:min-h-[490px]">
                 <a
-                  href="https://www.instagram.com/vdsatheesanleaderofopposition/?hl=en"
+                  href="https://www.instagram.com/vdsatheesan.official/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="V. D. Satheesan on Instagram"

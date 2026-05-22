@@ -17,6 +17,7 @@ const Homepage = () => {
             src="/home_images/home_banner.png"
             alt="V. D. Satheesan official website hero banner"
             priority
+            fetchPriority="high"
             sizes="100vw"
             className="w-full lg:h-[84vh] h-[60vh] cursor-pointer bg-no-repeat object-cover"
             width={1000}
@@ -59,7 +60,8 @@ const Homepage = () => {
               src="/home_images/vds_img-home1.png"
               className="h-full  w-[89vh]"
               alt="V. D. Satheesan portrait"
-              loading="lazy"
+              priority
+              fetchPriority="high"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
           </div>
