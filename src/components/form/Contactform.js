@@ -81,11 +81,7 @@ const Contactform = () => {
         submitData
       );
 
-      // SUCCESS EVEN IF MAIL FAILS
-      if (
-        response.data.status === "mail_sent" ||
-        response.data.status === "mail_failed"
-      ) {
+      if (response.data.status === "mail_sent") {
         setMessage("Form submitted successfully!");
 
         // RESET FORM

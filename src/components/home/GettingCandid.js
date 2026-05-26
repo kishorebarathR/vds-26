@@ -18,14 +18,19 @@ const VideoPlayer = () => {
   // Listen to messages from the iframe to track playback time
   useEffect(() => {
     const handleMessage = (event) => {
+      if (event.origin !== "https://www.youtube-nocookie.com") return
       if (
         event.data &&
         typeof event.data === "string" &&
         event.data.includes("infoDelivery")
       ) {
-        const data = JSON.parse(event.data.slice(event.data.indexOf("{")))
-        if (data && data.info && data.info.currentTime) {
-          setLastPlayedTime(data.info.currentTime)
+        try {
+          const data = JSON.parse(event.data.slice(event.data.indexOf("{")))
+          if (data && data.info && data.info.currentTime) {
+            setLastPlayedTime(data.info.currentTime)
+          }
+        } catch {
+          // ignore malformed messages
         }
       }
     }
@@ -37,7 +42,7 @@ const VideoPlayer = () => {
   const postMessageToPlayer = (command, args = []) => {
     iframeRef.current?.contentWindow.postMessage(
       JSON.stringify({ event: "command", func: command, args }),
-      "*"
+      "https://www.youtube-nocookie.com"
     )
   }
 
@@ -111,6 +116,7 @@ const VideoPlayer = () => {
                 <a
                   href="https://www.youtube.com/c/dialoguewithvds/videos"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="focus:outline-none text-white bg-[#880505] hover:bg-red-800 font-medium rounded-md text-[18px] px-7 py-3 me-2 mb-2"
                 >
                   Subscribe
