@@ -22,14 +22,19 @@ const VideoPlayer = () => {
 
   useEffect(() => {
     const handleMessage = (event) => {
+      if (event.origin !== "https://www.youtube-nocookie.com") return
       if (
         event.data &&
         typeof event.data === "string" &&
         event.data.includes("infoDelivery")
       ) {
-        const data = JSON.parse(event.data.slice(event.data.indexOf("{")))
-        if (data && data.info && data.info.currentTime) {
-          setLastPlayedTime(data.info.currentTime)
+        try {
+          const data = JSON.parse(event.data.slice(event.data.indexOf("{")))
+          if (data && data.info && data.info.currentTime) {
+            setLastPlayedTime(data.info.currentTime)
+          }
+        } catch {
+          // ignore malformed messages
         }
       }
     }
@@ -41,7 +46,7 @@ const VideoPlayer = () => {
   const postMessageToPlayer = (command, args = []) => {
     iframeRef.current?.contentWindow.postMessage(
       JSON.stringify({ event: "command", func: command, args }),
-      "*"
+      "https://www.youtube-nocookie.com"
     )
   }
 
